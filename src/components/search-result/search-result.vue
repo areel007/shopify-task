@@ -51,10 +51,10 @@
 		color: var(--secondary-color);
 		list-style: none;
 		background-color: var(--white);
-		white-space: nowrap;
 		border-radius: 5px;
 		cursor: pointer;
 		transition: all .1s ease-in-out;
+		width: 100%;
 	}
 	#search-result ul li:hover {
 		transform: scaleX(1.02);
@@ -78,6 +78,12 @@
 	@media screen and (max-width: 1100px){
 		#search-result {
 			width: 100%;
+		}
+	}
+
+	@media screen and (max-width: 450px){
+		#search-result ul li {
+			line-height: 2;
 		}
 	}
 

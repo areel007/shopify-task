@@ -6,7 +6,7 @@
 			<div class="container">
 				<div id="inner-result-and-nominations">
 					<search-result @nominate="nominate($event)" :search-input="searchInput" :movies="movies"></search-result>
-					<Nomination @remove-nomination="removeNomination" :movies="nominatedMovies" />
+					<Nomination @remove-nomination="removeNomination($event)" :movies="nominatedMovies" />
 				</div>
 			</div>
 		</div>
@@ -61,8 +61,8 @@
 					this.isNominationExceeded = true
 				}
 			},
-			removeNomination () {
-				this.nominatedMovies.pop()
+			removeNomination (e) {
+				this.nominatedMovies = this.nominatedMovies.filter(movie => movie.Title !== e)
 			}
 
 		},

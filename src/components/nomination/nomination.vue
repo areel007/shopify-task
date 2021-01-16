@@ -4,7 +4,7 @@
 		<ul>
 			<li v-for="(movie, index) in movies" :key="index">
 				{{ movie.Title }} <span id="date">({{ movie.Year }})</span>
-				<button @click="$emit('remove-nomination')">Remove</button>
+				<button @click="$emit('remove-nomination', movie.Title)">Remove</button>
 			</li>
 		</ul>
 		<p id="share-header" @click="show">Share</p>
@@ -62,7 +62,6 @@
 		color: var(--secondary-color);
 		list-style: none;
 		background-color: var(--white);
-		white-space: nowrap;
 		border-radius: 5px;
 		cursor: pointer;
 		transition: all .1s ease-in-out;
@@ -98,6 +97,12 @@
 		#nomination {
 			position: relative;
 			width: 100%;
+		}
+	}
+
+	@media screen and (max-width: 450px){
+		#nomination {
+			line-height: 2;
 		}
 	}
 
